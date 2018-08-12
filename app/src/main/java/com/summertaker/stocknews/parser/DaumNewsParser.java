@@ -55,6 +55,8 @@ public class DaumNewsParser extends BaseParser {
             //title = title.replaceAll("\\(\\d+\\)", "");
             title = title.replaceAll("<.+>\\s?", "");
 
+            title = title.replace(name, String.format(Config.NEWS_ITEM_NAME_HIGHLIGHT_FORMAT, name));
+
             //if (isInExcludeList(Config.KEY_WORD_CATEGORY_DAUM_EXCLUDE, title)) { // 제외 단어
             //    continue;
             //}

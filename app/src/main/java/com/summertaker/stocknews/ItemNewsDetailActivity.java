@@ -2,6 +2,7 @@ package com.summertaker.stocknews;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Html;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -40,7 +41,7 @@ public class ItemNewsDetailActivity extends BaseActivity {
         // 제목
         String title = intent.getStringExtra("title");
         TextView tvTitle = findViewById(R.id.tvTitle);
-        tvTitle.setText(title);
+        tvTitle.setText(Html.fromHtml(title, Html.FROM_HTML_MODE_LEGACY), TextView.BufferType.SPANNABLE);
 
         // 발행일
         String published = intent.getStringExtra("published");

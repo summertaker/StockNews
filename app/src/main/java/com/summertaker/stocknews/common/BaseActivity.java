@@ -2,19 +2,18 @@ package com.summertaker.stocknews.common;
 
 import android.content.Context;
 import android.content.res.Resources;
-import android.support.v4.content.ContextCompat;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
+import android.text.Html;
+import android.text.SpannableStringBuilder;
+import android.text.method.LinkMovementMethod;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.view.View;
-import android.view.Window;
-import android.view.WindowManager;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 
 import com.summertaker.stocknews.R;
 
@@ -108,6 +107,37 @@ public abstract class BaseActivity extends AppCompatActivity {
             }
             actionBar.setTitle(title);
         }
+    }
+
+    /*
+    protected void makeLinkClickable(SpannableStringBuilder strBuilder, final URLSpan span) {
+        final int start = strBuilder.getSpanStart(span);
+        int end = strBuilder.getSpanEnd(span);
+        int flags = strBuilder.getSpanFlags(span);
+        ClickableSpan clickable = new ClickableSpan() {
+            public void onClick(View view) {
+                String code = span.getURL();
+                //Toast.makeText(mContext, span.getURL(), Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(mContext, DetailActivity.class);
+                intent.putExtra("code", code);
+                startActivity(intent);
+            }
+        };
+        strBuilder.setSpan(clickable, start, end, flags);
+        strBuilder.removeSpan(span);
+    }
+    */
+
+    // https://stackoverflow.com/questions/12418279/android-textview-with-clickable-links-how-to-capture-clicks
+    protected void setTextViewHTML(TextView text, String html) {
+        CharSequence sequence = Html.fromHtml(html, Html.FROM_HTML_MODE_LEGACY);
+        SpannableStringBuilder strBuilder = new SpannableStringBuilder(sequence);
+        //URLSpan[] urls = strBuilder.getSpans(0, sequence.length(), URLSpan.class);
+        //for (URLSpan span : urls) {
+        //    makeLinkClickable(strBuilder, span);
+        //}
+        text.setText(strBuilder);
+        text.setMovementMethod(LinkMovementMethod.getInstance());
     }
 
     protected void initGesture() {

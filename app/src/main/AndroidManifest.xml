@@ -4,7 +4,7 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="android.permission.VIBRATE" />
 
     <application
         android:name=".common.BaseApplication"
@@ -25,9 +25,17 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".ItemActivity"
+            android:name=".BreakingDetailActivity"
             android:label="@string/title_activity_item"
-            android:theme="@style/AppTheme.NoActionBar"/>
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".ItemNewsListActivity"
+            android:label="@string/title_activity_item_news_list"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".ItemNewsDetailActivity"
+            android:label="@string/title_activity_item_news_detail"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>

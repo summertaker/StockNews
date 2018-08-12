@@ -7,13 +7,11 @@ import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
 import com.summertaker.stocknews.common.BaseActivity;
-import com.summertaker.stocknews.common.Config;
 import com.summertaker.stocknews.common.DataManager;
 import com.summertaker.stocknews.data.News;
 import com.summertaker.stocknews.util.RecyclerTouchListener;
@@ -25,7 +23,7 @@ import java.util.Locale;
 
 public class MainActivity extends BaseActivity {
 
-    private NewsListAdapter mAdapter;
+    private BreakingListAdapter mAdapter;
     private ArrayList<News> mNewsList;
 
     private RecyclerView mRecyclerView;
@@ -35,13 +33,13 @@ public class MainActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.main_activity);
 
         mContext = MainActivity.this;
         initBaseActivity(mContext);
 
         mNewsList = new ArrayList<>();
-        mAdapter = new NewsListAdapter(mNewsList);
+        mAdapter = new BreakingListAdapter(mNewsList);
 
         mRecyclerView = findViewById(R.id.recyclerView);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(mContext));
@@ -52,8 +50,8 @@ public class MainActivity extends BaseActivity {
             public void onClick(View view, int position) {
                 if (position < mNewsList.size()) {
                     News news = mNewsList.get(position);
-                    //Util.startKakaoStockDeepLink(mContext, item.getCode());
-                    Intent intent = new Intent(mContext, ItemActivity.class);
+                    //Util.startKakaoStockDeepLink(mContext, breaking_detail.getCode());
+                    Intent intent = new Intent(mContext, BreakingDetailActivity.class);
                     intent.putExtra("title", news.getTitle());
                     intent.putExtra("url", news.getUrl());
                     intent.putExtra("published", news.getPublished());
@@ -64,8 +62,8 @@ public class MainActivity extends BaseActivity {
             @Override
             public void onLongClick(View view, int position) {
                 //finish();
-                //Item item = mItems.get(position);
-                //Util.startKakaoStockDeepLink(mContext, item.getCode());
+                //Item breaking_detail = mItems.get(position);
+                //Util.startKakaoStockDeepLink(mContext, breaking_detail.getCode());
             }
         }));
 
@@ -147,7 +145,7 @@ public class MainActivity extends BaseActivity {
 
         //setActionBarTitleCount(mNewsList.size());
         Calendar calendar = Calendar.getInstance();
-        SimpleDateFormat sdf = new SimpleDateFormat("M월 dd일 (EEE) a H:mm:ss", Locale.KOREAN);
+        SimpleDateFormat sdf = new SimpleDateFormat("M월 d일 (EEE) a H:mm:ss", Locale.KOREAN);
         String title = sdf.format(calendar.getTime());
         setActionBarTitle(title);
 
@@ -187,20 +185,20 @@ public class MainActivity extends BaseActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        //getMenuInflater().inflate(R.menu.menu_main, menu);
+        //getMenuInflater().inflate(R.menu.main, menu);
         return true;
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
-        if (id == R.id.action_refresh) {
-            mSwipeRefreshLayout.setRefreshing(true);
-            goToTheTop();
-            loadNewsList();
-            return true;
+        switch (id) {
+            case R.id.action_refresh:
+                mSwipeRefreshLayout.setRefreshing(true);
+                goToTheTop();
+                loadNewsList();
+                return true;
         }
-
         return super.onOptionsItemSelected(item);
     }
 

@@ -1,15 +1,11 @@
 package com.summertaker.stocknews.data;
 
-import android.support.annotation.NonNull;
-
-import java.util.Comparator;
-import java.util.Date;
-
 public class News {
     private long id;
     private String title;
     private String url;
     private String published;
+    private String content;
 
     public long getId() {
         return id;
@@ -41,5 +37,13 @@ public class News {
 
     public void setPublished(String published) {
         this.published = published;
+    }
+
+    public String getContent() {
+        return content;
+    }
+
+    public void setContent(String content) {
+        this.content = content;
     }
 }

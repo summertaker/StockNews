@@ -2,6 +2,7 @@ package com.summertaker.stocknews;
 
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
+import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,11 +12,11 @@ import com.summertaker.stocknews.data.News;
 
 import java.util.ArrayList;
 
-public class NewsListAdapter extends RecyclerView.Adapter<NewsListAdapter.ItemViewHolder> {
+public class BreakingListAdapter extends RecyclerView.Adapter<BreakingListAdapter.ItemViewHolder> {
 
     private ArrayList<News> mNewsList;
 
-    public NewsListAdapter(ArrayList<News> newsList) {
+    public BreakingListAdapter(ArrayList<News> newsList) {
         this.mNewsList = newsList;
     }
 
@@ -33,19 +34,19 @@ public class NewsListAdapter extends RecyclerView.Adapter<NewsListAdapter.ItemVi
 
     @NonNull
     @Override
-    public NewsListAdapter.ItemViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.news_list_row, parent, false);
-        return new NewsListAdapter.ItemViewHolder(itemView);
+    public BreakingListAdapter.ItemViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.breaking_list_row, parent, false);
+        return new BreakingListAdapter.ItemViewHolder(itemView);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull NewsListAdapter.ItemViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull BreakingListAdapter.ItemViewHolder holder, int position) {
         News news = mNewsList.get(position);
 
         // 제목
         String title = news.getTitle();
-        //title = news.getId() + ". " + title;
-        holder.tvTitle.setText(title);
+        title = news.getId() + ". " + title;
+        holder.tvTitle.setText(Html.fromHtml(title, Html.FROM_HTML_MODE_LEGACY), TextView.BufferType.SPANNABLE);
 
         // 발행일
         String published = news.getPublished();

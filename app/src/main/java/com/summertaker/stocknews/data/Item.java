@@ -5,9 +5,8 @@ public class Item {
     private String code;
     private String name;
     private int price;
-    private int pof;   // 전일비 Price of Fluctuation
+    private float pof; // 전일비 Price of Fluctuation
     private float rof; // 등락률 Rate of Fluctuation
-
     private int charCount = 0;
 
     public long getId() {
@@ -42,11 +41,11 @@ public class Item {
         this.price = price;
     }
 
-    public int getPof() {
+    public float getPof() {
         return pof;
     }
 
-    public void setPof(int pof) {
+    public void setPof(float pof) {
         this.pof = pof;
     }
 

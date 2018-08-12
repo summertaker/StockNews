@@ -1,5 +1,8 @@
 package com.summertaker.stocknews.common;
 
+import com.summertaker.stocknews.data.Item;
+
+import java.util.ArrayList;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 

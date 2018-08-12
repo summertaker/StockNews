@@ -32,6 +32,7 @@ public class NaverNewsParser extends BaseParser {
                 title = el.text();
                 //title = title.replaceAll("\\[.+\\]\\s?", "");
                 //title = title.replaceAll("\\(.+\\)\\s?", "");
+                //title = title.replaceAll("\\(\\d+\\)", "");
                 //title = title.replaceAll("<.+>\\s?", "");
 
                 url = el.attr("href");
@@ -83,16 +84,19 @@ public class NaverNewsParser extends BaseParser {
             if (exclude) continue;
 
             // 포함
+            String title = news.getTitle();
             boolean include = false;
             for (String word : includeList) {
                 if (news.getTitle().contains(word)) {
                     include = true;
-                    break;
+                    title = title.replace(word, String.format(Config.NEWS_TEXT_HIGHLIGHT_FORMAT, word));
+                    //break;
                 }
             }
             if (!include) continue;
 
             news.setId(id);
+            news.setTitle(title);
             list.add(news);
             id++;
         }

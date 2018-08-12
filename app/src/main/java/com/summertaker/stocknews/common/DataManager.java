@@ -9,6 +9,7 @@ import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
+import com.summertaker.stocknews.parser.DaumNewsParser;
 import com.summertaker.stocknews.parser.NaverNewsParser;
 import com.summertaker.stocknews.data.Item;
 import com.summertaker.stocknews.data.News;

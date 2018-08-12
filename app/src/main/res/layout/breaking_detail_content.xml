@@ -5,8 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context=".ItemActivity"
-    tools:showIn="@layout/activity_item">
+    tools:context=".BreakingDetailActivity"
+    tools:showIn="@layout/breaking_detail_activity">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -80,10 +80,14 @@
                 android:id="@+id/loData"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingTop="30dp"
                 android:orientation="vertical"
+                android:paddingBottom="@dimen/activity_padding"
+                android:paddingEnd="@dimen/activity_padding"
+                android:paddingStart="@dimen/activity_padding"
+                android:paddingTop="15dp"
                 android:visibility="gone">
 
+                <!-- 종목 이름 -->
                 <TextView
                     android:id="@+id/tvName"
                     android:layout_width="match_parent"
@@ -93,22 +97,34 @@
                     android:textSize="@dimen/text_md"
                     android:textStyle="bold" />
 
+                <!-- 주가 -->
                 <TextView
                     android:id="@+id/tvPrice"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:paddingTop="7dp"
-                    android:textColor="@color/danger"
+                    android:textColor="@color/info"
                     android:textSize="@dimen/text_md" />
 
+                <!-- 등락률 -->
+                <TextView
+                    android:id="@+id/tvRof"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:paddingTop="3dp"
+                    android:textColor="@color/danger"
+                    android:textSize="@dimen/text_md"
+                    android:textStyle="bold" />
+
+                <!-- 매수량 -->
                 <TextView
                     android:id="@+id/tvVolume"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="7dp"
                     android:gravity="center"
-                    android:paddingTop="7dp"
+                    android:paddingTop="3dp"
                     android:textColor="@color/success"
                     android:textSize="@dimen/text_md" />
 
@@ -116,9 +132,9 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
                     android:gravity="center"
-                    android:orientation="horizontal"
-                    android:padding="15dp">
+                    android:orientation="horizontal">
 
                     <Button
                         android:id="@+id/btnBuy"
@@ -127,7 +143,94 @@
                         android:text="@string/buy"
                         android:textSize="@dimen/text_md" />
 
+                    <Button
+                        android:id="@+id/btnNews"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/news"
+                        android:textSize="@dimen/text_md" />
+
                 </LinearLayout>
+
+                <!-- 일 차트 -->
+                <!--
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/activity_padding"
+                    android:text="@string/day_chart"
+                    android:textStyle="bold" />
+                    -->
+
+                <ImageView
+                    android:id="@+id/ivDayChart"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/activity_padding"
+                    android:adjustViewBounds="true"
+                    android:background="@drawable/chart_background"
+                    android:contentDescription="@null"
+                    android:scaleType="fitCenter" />
+
+                <!-- 주 차트 -->
+                <!--
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/activity_padding"
+                    android:text="@string/week_chart"
+                    android:textStyle="bold" />
+
+                <ImageView
+                    android:id="@+id/ivWeekChart"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/activity_padding"
+                    android:adjustViewBounds="true"
+                    android:background="@drawable/chart_background"
+                    android:contentDescription="@null"
+                    android:scaleType="fitCenter" />
+                    -->
+
+                <!-- 주봉 차트 -->
+                <!--
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/activity_padding"
+                    android:text="@string/week_chart"
+                    android:textStyle="bold" />
+
+                <ImageView
+                    android:id="@+id/ivMonthCandleChart"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:adjustViewBounds="true"
+                    android:background="@drawable/chart_background"
+                    android:contentDescription="@null"
+                    android:scaleType="fitCenter" />
+                    -->
+
+                <!-- 월봉 차트 -->
+                <!--
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/activity_padding"
+                    android:text="@string/month_chart"
+                    android:textStyle="bold" />
+
+                <ImageView
+                    android:id="@+id/ivYearCandleChart"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:adjustViewBounds="true"
+                    android:background="@drawable/chart_background"
+                    android:contentDescription="@null"
+                    android:scaleType="fitCenter" />
+                    -->
 
             </LinearLayout>
 

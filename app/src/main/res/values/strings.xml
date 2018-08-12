@@ -1,4 +1,5 @@
 <resources>
+    <string name="action_close">Close</string>
     <string name="action_refresh">Refresh</string>
     <string name="action_settings">Settings</string>
 
@@ -6,11 +7,22 @@
     <string name="buy">매수</string>
     <string name="buy_volume_s_stock">매수량 %s주</string>
 
+    <string name="day_chart">일 차트</string>
+
     <string name="loading">로드 중&#8230;</string>
 
+    <string name="month_chart">월 차트</string>
+
+    <string name="news">뉴스</string>
     <string name="no_data">NO DATA</string>
 
     <string name="s_won">%s원</string>
 
+    <string name="week_chart">주 차트</string>
+
+    <string name="year_chart">년 차트</string>
+
     <string name="title_activity_item">ITEM</string>
+    <string name="title_activity_item_news_list">NEWS</string>
+    <string name="title_activity_item_news_detail">ItemNewsDetailActivity</string>
 </resources>

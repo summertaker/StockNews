@@ -1,0 +1,7 @@
+<resources>
+    <dimen name="fab_margin">16dp</dimen>
+    <dimen name="activity_padding">10dp</dimen>
+    <dimen name="text_xl">20sp</dimen>
+    <dimen name="text_lg">18sp</dimen>
+    <dimen name="text_md">16sp</dimen>
+</resources>

@@ -1,0 +1,16 @@
+<resources>
+    <string name="action_refresh">Refresh</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="app_name">STOCK NEWS</string>
+    <string name="buy">매수</string>
+    <string name="buy_volume_s_stock">매수량 %s주</string>
+
+    <string name="loading">로드 중&#8230;</string>
+
+    <string name="no_data">NO DATA</string>
+
+    <string name="s_won">%s원</string>
+
+    <string name="title_activity_item">ITEM</string>
+</resources>

@@ -1,7 +1,8 @@
 <resources>
-    <string name="action_close">Close</string>
-    <string name="action_refresh">Refresh</string>
-    <string name="action_settings">Settings</string>
+    <string name="action_close">닫기</string>
+    <string name="action_finish">종료</string>
+    <string name="action_refresh">새로 고침</string>
+    <string name="action_settings">설정</string>
 
     <string name="app_name">STOCK NEWS</string>
     <string name="buy">매수</string>

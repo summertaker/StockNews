@@ -8,9 +8,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.summertaker.stocknews.common.Config;
 import com.summertaker.stocknews.data.News;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Locale;
 
 public class BreakingListAdapter extends RecyclerView.Adapter<BreakingListAdapter.ItemViewHolder> {
 

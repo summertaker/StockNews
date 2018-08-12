@@ -14,6 +14,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.summertaker.stocknews.common.BaseActivity;
 import com.summertaker.stocknews.common.BaseApplication;
+import com.summertaker.stocknews.common.Config;
 import com.summertaker.stocknews.data.News;
 import com.summertaker.stocknews.parser.DaumNewsParser;
 
@@ -107,7 +108,7 @@ public class ItemNewsDetailActivity extends BaseActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
         switch (id) {
-            case R.id.action_close:
+            case R.id.action_finish:
                 finish();
                 return true;
         }

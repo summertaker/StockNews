@@ -131,7 +131,7 @@ public class ItemNewsListActivity extends BaseActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
         switch (id) {
-            case R.id.action_close:
+            case R.id.action_finish:
                 finish();
                 return true;
         }

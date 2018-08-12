@@ -8,7 +8,11 @@ import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
+import java.util.Locale;
 
 public class NaverNewsParser extends BaseParser {
 
@@ -19,6 +23,9 @@ public class NaverNewsParser extends BaseParser {
         if (response == null || response.isEmpty()) {
             return;
         }
+
+        SimpleDateFormat inFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm", Locale.getDefault());
+        SimpleDateFormat outFormat = new SimpleDateFormat("M월 d일 (EEE) a H:mm", Locale.KOREAN);
 
         Document doc = Jsoup.parse(response);
         Element ul = doc.select(".realtimeNewsList").first();
@@ -52,8 +59,14 @@ public class NaverNewsParser extends BaseParser {
             for (Element el : li.select(".wdate")) {
                 String published;
                 published = el.text();
-
                 //Log.e(TAG, i + ". " + published + " " + elapsed);
+                try {
+                    Date date = inFormat.parse(published);
+                    published = outFormat.format(date);
+                    //Log.e(TAG, "published: " + published);
+                } catch (ParseException e) {
+                    e.printStackTrace();
+                }
 
                 newsList.get(count).setPublished(published);
                 count++;

@@ -193,10 +193,13 @@ public class MainActivity extends BaseActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
         switch (id) {
-            case R.id.action_refresh:
-                mSwipeRefreshLayout.setRefreshing(true);
-                goToTheTop();
-                loadNewsList();
+            //case R.id.action_refresh:
+            //    mSwipeRefreshLayout.setRefreshing(true);
+            //    goToTheTop();
+            //    loadNewsList();
+            //    return true;
+            case R.id.action_finish:
+                finish();
                 return true;
         }
         return super.onOptionsItemSelected(item);

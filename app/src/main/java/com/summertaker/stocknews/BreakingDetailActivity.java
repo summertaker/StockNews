@@ -34,14 +34,14 @@ public class BreakingDetailActivity extends BaseActivity {
         initGesture();
 
         Intent intent = getIntent();
-        String title = intent.getStringExtra("title");
-        String published = intent.getStringExtra("published");
 
         // 뉴스 제목
+        String title = intent.getStringExtra("title");
         TextView tvTitle = findViewById(R.id.tvTitle);
         tvTitle.setText(Html.fromHtml(title, Html.FROM_HTML_MODE_LEGACY), TextView.BufferType.SPANNABLE);
 
         // 뉴스 발행일
+        String published = intent.getStringExtra("published");
         TextView tvPublished = findViewById(R.id.tvPublished);
         tvPublished.setText(published);
 
@@ -172,7 +172,7 @@ public class BreakingDetailActivity extends BaseActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
         switch (id) {
-            case R.id.action_close:
+            case R.id.action_finish:
                 finish();
                 return true;
         }

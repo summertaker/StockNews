@@ -47,11 +47,11 @@ public class ItemNewsListAdapter extends RecyclerView.Adapter<ItemNewsListAdapte
         // 제목
         String title = news.getTitle();
         title = news.getId() + ". " + title;
-        title = title.replace(mName, String.format(Config.NEWS_ITEM_NAME_HIGHLIGHT_FORMAT, mName));
         holder.tvTitle.setText(Html.fromHtml(title, Html.FROM_HTML_MODE_LEGACY), TextView.BufferType.SPANNABLE);
 
         // 발행일
-        holder.tvPublished.setText(news.getPublished());
+        String published = news.getPublished();
+        holder.tvPublished.setText(published);
     }
 
     @Override

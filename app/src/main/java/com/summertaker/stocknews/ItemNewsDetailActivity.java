@@ -92,6 +92,12 @@ public class ItemNewsDetailActivity extends BaseActivity {
     }
 
     @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return true;
+    }
+
+    @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.item_news_detail, menu);
         return true;
